@@ -1,0 +1,35 @@
+---
+layout: page
+---
+
+<div id="archive">
+  <div class="row">
+    <div class="col l12 m12">
+      {% capture years %}{% for p in site.posts %}{{p.date | date: "%Y"}}{%if forloop.last == false %},{% endif %}{% endfor %}{% endcapture %}
+      {% assign yearArr = years | split: ',' | uniq | sort | reverse %}
+      <ul class="tabs">
+        {% for y in yearArr %}
+          <li class="tab"><a href="#{{y}}" class="{% if forloop.first == true %}active{% endif %}">{{y}}</a></li>
+        {% endfor %}
+      </ul>
+      {% for y in yearArr %}
+        {% capture months %}{% for p in site.posts %}{% assign currY = p.date | date: "%Y" %}{%if currY == y %}{{ p.date | date: "%m"}}{%if forloop.last == false %},{% endif %}{% endif %}{% endfor %}{% endcapture %}
+        {% assign monthArr = months | split: ',' | uniq | sort %}  
+        <div id="{{y}}">
+          <dl>
+            {% for m in monthArr %}
+              {% assign d = "" | append: y | append: "-" | append: m  | append: "-01" %}
+              <dt>{{ d | date: "%b" }}</dt>
+              {% for p in site.posts %}
+                {% assign curr = p.date | date: "%Y-%m-01" %}
+                {% if curr == d %}
+                  <dd class="post">{{p.date | date: "%d"}} &middot; <a href="{{p.url}}" class="title">{{p.title}}</a></dd>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </dl>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

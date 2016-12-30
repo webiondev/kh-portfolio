@@ -1,0 +1,71 @@
+.project{
+
+    .title{
+        font-family: Gruppo;
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+    .created{
+        color: lighten($off-black,60%);
+        text-transform: uppercase;
+    }
+
+    .image{
+
+        height: $showcase-image-height;
+        text-align: center;
+
+        .fa{
+            color: $primary-color;
+            font-size: $showcase-image-height - $padding;
+        }
+    }
+
+    li:before {
+        margin-left: $padding;
+        content: "›";
+        padding-right: 8px;
+    }
+}
+
+#portfolio{
+    
+    .project{
+
+        margin-bottom: $padding;
+
+        .title{
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+    }
+}
+
+#showcase{
+
+    a{
+        color: lighten($off-black,60%);
+    }
+
+    .project{
+
+        position: relative;
+        height: 250px;
+
+        .title{
+            margin-top: $padding;
+            color: $off-black;
+            font-size: larger;
+            font-family: Roboto;
+        }
+
+        .created{
+            font-size: smaller;
+        }
+
+    }
+
+}

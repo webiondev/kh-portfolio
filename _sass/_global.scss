@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: Gruppo;
+    text-transform: lowercase;
+}
+
+footer.page-footer{
+
+    color: darken($navbar-font-color,30%);
+    
+    a{
+        color: darken($navbar-font-color,30%);
+    }
+}
+
+.seal{
+    width: 48px;
+    height: 48px;
+}
+
+a.brand-logo{
+    font-family: Gruppo;
+}

@@ -1,0 +1,73 @@
+.post{
+    
+    .title{
+        font-family: Gruppo;
+        text-transform: none;
+        margin-bottom: 0;
+    }
+
+    .created{
+        text-transform: uppercase;
+        color: lighten($off-black,60%);
+    }
+
+    .body{
+    }
+
+    .categories{
+
+        background-color: transparent;
+        box-shadow: none;
+        height: 13px;
+        line-height: 13px;
+
+        .col{
+            padding: 0;
+        }
+
+        .breadcrumb{
+            color: lighten($off-black,60%);
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .breadcrumb:before{
+            color: $primary-color;
+            font-size: 13px;
+        }
+    }
+
+}
+
+#archive{
+    
+    .post{
+
+        .title{
+            font-family: Roboto;
+            font-weight: bold;
+        }
+    }
+}
+
+#blog-preview{
+    
+    .post{
+
+        margin: 0px 0 16px 0;
+
+        .title{
+            font-family: Roboto;
+            font-weight: bold;
+        }
+
+        .exercept{
+
+        }
+
+        .read-more{
+            text-decoration: underline;
+        }
+
+    }
+}

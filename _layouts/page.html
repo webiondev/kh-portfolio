@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<div class="container">
+	<div class="row">
+		<div class="col l12 m12 s12">
+			{% if page.show_title %}
+				<h2>{{page.title}}</h2>
+			{% endif %}
+			{{ content }}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+---
+layout: page
+---
+
+<div id="portfolio">
+
+  {% capture years %}{% for p in site.projects %}{%if p.show %}{{p.created | date: "%Y"}}{% endif %}{%if forloop.last == false %},{% endif %}{% endfor %}{% endcapture %}
+  {% assign yearArr = years | split: ',' | uniq | sort | reverse %}
+  <ul class="tabs">
+  {% for y in yearArr %}
+  <li class="tab"><a href="#{{y}}" class="{% if forloop.first == true %}active{% endif %}">{{y}}</a></li>
+  {% endfor %}
+  </ul>
+  <div class="section">
+    {% assign sorted_projects = site.projects | sort: "created" | reverse %}
+    {% for y in yearArr %}
+      <div id="{{y}}">
+        {% for p in sorted_projects %}
+          {% assign Y = p.created | date: "%Y" %}
+          {% if p.show and Y == y %}
+            <div class="project">
+              {{ p.created | date: "%b %d" }} &middot; <a href="{{p.url}}" class="title">{{p.title}}</a> 
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

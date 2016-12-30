@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col l8 m8 s12">
+      <div class="section">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+          <header>
+            {% assign num_categories = page.categories | size %}
+            {% if num_categories != 0 %}
+              <nav class="categories">
+                <div class="nav-wrapper">
+                  <div class="col l12 m12 s12">
+                    {% for c in page.categories %}
+                      <span class="breadcrumb">{{c}}</span>
+                    {% endfor %}
+                  </div>
+                </div>
+              </nav>
+            {% endif %}
+            <h2 class="title" itemprop="name headline">{{ page.title }}</h2>
+            <div>
+              <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished" class="created">{{ page.date | date: "%B %-d, %Y" }}</time>
+              {% if page.author %} &bull;
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+              {% endif %} 
+            </div>
+          </header>
+          <div class="body flow-text" itemprop="articleBody">
+            {{ content }}
+          </div>
+          <footer>
+            {% assign num_tags = page.tags | size %}
+            {% if num_tags != 0 %}
+              <div class="tags">
+                <i class="fa fa-lg fa-tags"></i> 
+                {% assign sorted_tags = page.tags | sort %}
+                {% for t in sorted_tags %}
+                  <span class="chip" itemscope itemtype="http://schema.org/Text" itemprop="keywords">{{t}}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </footer>
+        </article>
+      </div>
+    </div>
+    <div class="col l4 m4 s12">
+      <div class="section">
+        {% capture rel_posts %}
+        {% for p in site.posts %}
+          {% assign keywords = p.tags | join: "," %}
+          {% assign lenStart = keywords | size %}
+          {% for t in page.tags %}
+            {% assign keywords = keywords | replace: t %}
+          {% endfor %}
+          {% assign lenEnd = keywords | size %}
+          {% if lenStart != lenEnd and p.url != page.url %}
+            <li><a href="{{p.url}}">{{p.title}}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% endcapture %}
+        {% assign len = rel_posts | lstrip | rstrip | size %}
+        {% if len != 0 %}
+          <h5>Related</h5>
+          <ul>
+            {{rel_posts}}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
