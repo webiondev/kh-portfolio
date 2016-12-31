@@ -10,7 +10,7 @@ title: README
 Add this line to your Jekyll site's Gemfile:
 
 ```ruby
-gem "kh-portfolio"
+gem "kh-portfolio", "~> 0.1.3"
 ```
 
 And add this line to your Jekyll site's `_config.yml`:
@@ -21,7 +21,7 @@ theme: kh-portfolio
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -64,7 +64,14 @@ and contributors are expected to adhere to the
 
 To set up your environment to develop this theme, run `bundle install`.
 
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+1. Clone the repository `git clone https://github.com/phyiction/kh-portfolio.git`
+
+2. Update the `Gemfile` in your Jekyll site with `gem "kh-portfolio", :path => "<path to repo>"`
+
+3. Run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. 
+   As you make modifications to your content, your site will regenerate and you 
+   should see the changes in the browser after a refresh. If you make changes to the
+   theme you will need to restart the server. 
 
 When your theme is released, only the files in `_layouts`, `_includes`, and `_sass` tracked with Git will be released.
 
