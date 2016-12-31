@@ -1,6 +1,9 @@
 ---
 ---
 
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Gruppo|Roboto:100,300,400,500,700');
+
 // Materialize CSS
 @import "materialize/all";
 
@@ -8,7 +11,6 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
 @import "variables";
-@import "gruppo";
 @import "global";
 @import "post";
 @import "project";
