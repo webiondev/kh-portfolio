@@ -1,44 +1,54 @@
 <!DOCTYPE html>
 {% assign logo = site.first_initial | append: "[" | append: site.second_initial | append: "]" %}
 <html>
-    <head>
+  <head>
 
-        <title>{{logo}} : {{page.title}}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- JQuery -->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <title>{{logo}} : {{page.title}}</title>
 
-        <!-- Materialize JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
-        <!-- Theme JS -->
-        <script type="text/javascript" src="/assets/js/theme.js"></script>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 
-        <!-- Font Awesome -->
-        <script src="https://use.fontawesome.com/6f7070a647.js"></script>
+    <!-- Theme JS -->
+    <script type="text/javascript" src="/assets/js/theme.js"></script>
 
-        <!-- Theme CSS -->
-        <link rel="stylesheet" href="/assets/styles.css" />
-        
-        <!-- Syntax Highlight CSS -->
-        <link rel="stylesheet" href="/assets/syntax.css" />
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/6f7070a647.js"></script>
 
-    </head>
-    <body>
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/assets/styles.css" />
 
-        <header>
-            {% include nav.html logo=logo %}
-        </header>
-        <main>
-            {{ content }}
-        </main>
-        <footer class="page-footer">
+    <!-- Syntax Highlight CSS -->
+    <link rel="stylesheet" href="/assets/syntax.css" />
+
+  </head>
+  <body>
+
+    <header>
+      {% include nav.html logo=logo %}
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m12 l12">
             <p id="social-media-bar" class="center-align">
-                {% include social-media-connection-bar.html %}
+              {% include social-media-connection-bar.html %}
             </p>
             <p id="powered-by" class="center-align">
-                {% include powered-by.html %}
+              {% include powered-by.html %}
             </p>
-        </footer>
-    </body>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

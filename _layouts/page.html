@@ -2,13 +2,14 @@
 layout: default
 ---
 
+{% if page.show_title %}
 <div class="container">
-	<div class="row">
-		<div class="col l12 m12 s12">
-			{% if page.show_title %}
-				<h2>{{page.title}}</h2>
-			{% endif %}
-			{{ content }}
-		</div>
-	</div>
+  <div class="row">
+    <div class="col l12 m12 s12">
+      <h2>{{page.title}}</h2>
+    </div>
+  </div>
 </div>
+{% endif %}
+
+{{ content }}
